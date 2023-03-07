@@ -1,0 +1,162 @@
+<html>
+
+<head>
+    <title>ESP32 Web Server</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="data:,">
+    <style>
+       meter 
+        {
+            -webkit-writing-nmode: horizontal-tb !important;
+            appearance: auto;
+            box-sizing: border-box;
+            display: inline-block;
+            height: 5em;
+            width: 13em;
+            vertical-align: -1.0em;
+            -webkit-user-modify: read-only !important;
+        }
+        html 
+        {
+            font-family: Helvetica;
+            display: inline-block;
+            margin: 0px auto;
+            text-align: center;
+        }
+
+        h1 
+        {
+            color: #0F3376;
+            padding: 2vh;
+        }
+
+        p 
+        {
+            font-size: 1.5rem;
+        }
+
+        table 
+        {
+            margin: auto;
+        }
+
+        td 
+        {
+            padding: 10px;
+            font-size: 20px;
+        }
+
+        .Button 
+        {
+            
+            display: inline-block;
+            cursor: pointer;
+            color: #ffffff;          
+            font-weight: bold;
+            font-style: italic;
+            padding: 17px 19px;
+            text-decoration: none;
+            font-size: 20px;
+            font-family: Arial;
+            width: 140px;
+            height: 50px;
+            border-width: 1px;
+            border-top-left-radius: 18px;
+            border-top-right-radius: 18px;
+            border-bottom-left-radius: 18px;
+            border-bottom-right-radius: 18px;
+        }
+        .ButtonD 
+        {   
+            border-color: #090a47; 
+            box-shadow: 3px 4px 0px 0px #0f2b3d;
+            text-shadow: 0px 1px 0px #056481;
+            background: linear-gradient(#1f97c6, #0e60ac);
+        }
+
+        .ButtonD:hover 
+        {
+            background: linear-gradient(#3759f2, #1f54c6);
+        }
+
+        .ButtonD:active 
+        {
+            position: relative;
+            top: 1px;
+        }
+        .ButtonOFF {   
+            border-color: #0f0403; 
+            box-shadow: 3px 4px 0px 0px #5a0800;
+            text-shadow: 0px 1px 0px #91150c;
+            background: linear-gradient(#ee3d2d, #8d0f06);
+        }
+
+        .ButtonOFF:hover {
+            background: linear-gradient(#941e18, #97190e);
+        }
+
+        .ButtonOFF:active {
+            position: relative;
+            top: 1px;
+        }   
+        .Button1 
+        {
+            background-color: #504a4a;
+        }
+      
+
+    </style>
+    <script>
+        setInterval(updateValues, 2000);
+
+        function updateValues() 
+        {
+            location.reload(); 
+        }
+    </script>
+</head>
+
+<body>
+    <h1>ESP32 Web Server</h1>
+    <h2><em>Control IDF SDK ESP32</em></h2>
+
+    <table>
+        <tbody>
+
+            <tr>
+                <tr><td><h4>Digital Outputs</h4></td></tr>
+                <td>
+                    <p><a href="/?led-On"><button class="ButtonD Button">LED</button></a></p>
+                </td>
+                <td>
+                    <strong> %s </strong>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><a href="/?led-Off"><button class="ButtonOFF Button">LED</button></a></p>
+                </td>
+                <td>
+                    <strong> %s </strong>
+                </td>
+            </tr>
+            <td></td>
+            <tr> 
+               <tr><td><h4>Analog Inputs</h4></td></tr>
+               <td>
+                    <p><button class="Button1 Button">Sensor 1</button></p>
+                </td>
+                <td>
+                    <strong> %1.2f </strong>
+                    <meter id="fuel" min="0" max="3.3" low="1" high="2" optimum="3" value="%1.2f">
+                        at 50/100
+                    </meter>
+                </td>
+                <td><p><strong>Voltios</strong></p></td>
+            </tr>
+        </tbody>
+    </table>
+    
+</body>
+
+</html>
